@@ -17,7 +17,9 @@ Cuối cùng chúng ta cũng phải kiểm tra tính hợp lệ của đầu và
 Source code có sử dụng thư viện Jest phục vụ việc tạo, chạy và cấu trúc test được tạo ra bởi Facebook.
 
 Để chạy source:
+```sh
     $ npm install
     $ npm test
+```
 
 Toàn bộ test case năm trong file JSON datatest.json.
