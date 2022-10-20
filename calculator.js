@@ -92,15 +92,17 @@ const toString = (month, day, year) => {
 
 const calcNextDate = (dateString) => {
     let {month, day, year} = handleInputDateString(dateString);
-    if (year < 1900 || year > 2025) {
+    if (
+        year < 1900 ||
+        year > 2025 ||
+        day < 1 ||
+        day > getDaysInMonth(month, year) ||
+        month < 1 ||
+        month > 12
+    ) {
         return "Invalid";
     }
-    if (day < 1 || day > getDaysInMonth(month, year)) {
-        return "Invalid";
-    }
-    if (month < 1 || month > 12) {
-        return "Invalid";
-    }
+
     day++;
     if (!validate(month, day, year)) {
         day = 1;
@@ -110,8 +112,9 @@ const calcNextDate = (dateString) => {
             year++;
         }
     }
-
     return toString(month, day, year);
 };
+
+calcNextDate("01/31/1997");
 
 module.exports = calcNextDate;
